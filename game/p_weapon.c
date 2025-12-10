@@ -830,6 +830,17 @@ void Blaster_Fire (edict_t *ent, vec3_t g_offset, int damage, qboolean hyper, in
 	ent->client->kick_angles[0] = -1;
 
 	fire_blaster (ent, start, forward, damage, 1000, effect, hyper);
+	//pistol mod to shoot 3 bullets
+	start[0] += 10 * right[0];
+	start[1] += 10 * right[1];
+	start[2] += 10 * right[2];
+	fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+
+	start[0] -= 10 * 2 * right[0];
+	start[1] -= 10 * 2 * right[1];
+	start[2] -= 10 * 2 * right[2];
+	fire_blaster(ent, start, forward, damage, 1000, effect, hyper);
+	//end of the code 
 
 	// send muzzle flash
 	gi.WriteByte (svc_muzzleflash);
