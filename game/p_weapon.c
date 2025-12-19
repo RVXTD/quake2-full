@@ -98,6 +98,7 @@ void PlayerNoise(edict_t *who, vec3_t where, int type)
 	{
 		noise = who->mynoise;
 		level.sound_entity = noise;
+		level.sound_entity = noise;
 		level.sound_entity_framenum = level.framenum;
 	}
 	else // type == PNOISE_IMPACT

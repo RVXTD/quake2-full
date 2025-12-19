@@ -373,7 +373,7 @@ qboolean CheckTeamDamage (edict_t *targ, edict_t *attacker)
 		// if ((ability to damage a teammate == OFF) && (targ's team == attacker's team))
 	return false;
 }
-
+	
 void T_Damage (edict_t *targ, edict_t *inflictor, edict_t *attacker, vec3_t dir, vec3_t point, vec3_t normal, int damage, int knockback, int dflags, int mod)
 {
 	gclient_t	*client;
@@ -424,7 +424,24 @@ void T_Damage (edict_t *targ, edict_t *inflictor, edict_t *attacker, vec3_t dir,
 
 	if (targ->flags & FL_NO_KNOCKBACK)
 		knockback = 0;
+	//lifesteal
+	if (attacker && attacker->client)
+	{
+		gclient_t* cl = attacker->client;
 
+		if (cl->lifesteal_end_time > level.time && cl->lifesteal_percent > 0)
+		{
+			int heal = (int)(take * cl->lifesteal_percent);
+
+			if (heal > 0)
+			{
+				attacker->health += heal;
+
+				if (attacker->health > attacker->max_health)
+					attacker->health = attacker->max_health;
+			}
+		}
+	}
 // figure momentum add
 	if (!(dflags & DAMAGE_NO_KNOCKBACK))
 	{
