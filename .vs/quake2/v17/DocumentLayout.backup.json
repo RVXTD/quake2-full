@@ -7,16 +7,12 @@
       "RelativeMoniker": "D:0:0:{99BC3F01-A7EE-4881-939F-8A5EB75E1973}|game\\game.vcxproj|solutionrelative:game\\g_local.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99BC3F01-A7EE-4881-939F-8A5EB75E1973}|game\\game.vcxproj|C:\\Users\\noahg\\quake2-full\\game\\g_cmds.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99BC3F01-A7EE-4881-939F-8A5EB75E1973}|game\\game.vcxproj|solutionrelative:game\\g_cmds.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{99BC3F01-A7EE-4881-939F-8A5EB75E1973}|game\\game.vcxproj|C:\\Users\\noahg\\quake2-full\\game\\p_client.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{99BC3F01-A7EE-4881-939F-8A5EB75E1973}|game\\game.vcxproj|solutionrelative:game\\p_client.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{99BC3F01-A7EE-4881-939F-8A5EB75E1973}|game\\game.vcxproj|C:\\Users\\noahg\\quake2-full\\game\\p_hud.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{99BC3F01-A7EE-4881-939F-8A5EB75E1973}|game\\game.vcxproj|solutionrelative:game\\p_hud.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{99BC3F01-A7EE-4881-939F-8A5EB75E1973}|game\\game.vcxproj|C:\\Users\\noahg\\quake2-full\\game\\g_cmds.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{99BC3F01-A7EE-4881-939F-8A5EB75E1973}|game\\game.vcxproj|solutionrelative:game\\g_cmds.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,8 +22,12 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -36,53 +36,35 @@
               "RelativeDocumentMoniker": "game\\g_local.h",
               "ToolTip": "C:\\Users\\noahg\\quake2-full\\game\\g_local.h",
               "RelativeToolTip": "game\\g_local.h",
-              "ViewState": "AgIAAGADAAAAAAAAAAAvwHoDAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKEDAAAAAAAAAAAcwLcDAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-12-19T04:16:39.045Z",
-              "IsPinned": true,
+              "WhenOpened": "2025-12-19T15:32:08.227Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "p_client.c",
               "DocumentMoniker": "C:\\Users\\noahg\\quake2-full\\game\\p_client.c",
               "RelativeDocumentMoniker": "game\\p_client.c",
               "ToolTip": "C:\\Users\\noahg\\quake2-full\\game\\p_client.c",
               "RelativeToolTip": "game\\p_client.c",
-              "ViewState": "AgIAABYAAAAAAAAAAAAswCUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEwCAAAAAAAAAAAcwF4CAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-12-19T07:55:40.252Z",
+              "WhenOpened": "2025-12-19T15:31:25.632Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "p_hud.c",
-              "DocumentMoniker": "C:\\Users\\noahg\\quake2-full\\game\\p_hud.c",
-              "RelativeDocumentMoniker": "game\\p_hud.c",
-              "ToolTip": "C:\\Users\\noahg\\quake2-full\\game\\p_hud.c",
-              "RelativeToolTip": "game\\p_hud.c",
-              "ViewState": "AgIAAC0BAAAAAAAAAAAcwD4BAAAjAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-12-19T07:45:18.273Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "g_cmds.c",
               "DocumentMoniker": "C:\\Users\\noahg\\quake2-full\\game\\g_cmds.c",
               "RelativeDocumentMoniker": "game\\g_cmds.c",
               "ToolTip": "C:\\Users\\noahg\\quake2-full\\game\\g_cmds.c",
               "RelativeToolTip": "game\\g_cmds.c",
-              "ViewState": "AgIAADoEAAAAAAAAAAAcwD8EAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAE4CAAAAAAAAAAAswG0CAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2025-12-15T23:21:20.608Z",
+              "WhenOpened": "2025-12-19T15:26:01.476Z",
               "EditorCaption": ""
             }
           ]

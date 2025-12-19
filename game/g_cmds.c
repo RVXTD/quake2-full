@@ -597,6 +597,35 @@ void Cmd_Stim_f(edict_t* ent)
 
 	gi.cprintf(ent, PRINT_HIGH, "Combat stim active\n");
 }
+void Cmd_Armor_f(edict_t* ent)
+{
+	int armor_amount = 50;
+	gitem_t* armor;
+	int index;
+
+	if (!ent || !ent->client)
+		return;
+
+	if (!ent->inuse)
+		return;
+
+	armor = FindItem("Body Armor");
+	if (!armor)
+		return;
+
+	index = ITEM_INDEX(armor);
+
+	ent->client->pers.inventory[index] += armor_amount;
+
+	// Clamp to item max
+	if (ent->client->pers.inventory[index] > armor->quantity)
+		ent->client->pers.inventory[index] = armor->quantity;
+
+	gi.sound(ent, CHAN_ITEM, gi.soundindex("items/protect.wav"), 1, ATTN_NORM, 0);
+	gi.cprintf(ent, PRINT_HIGH, "Armor boosted\n");
+}
+
+
 
 
 /*
@@ -1076,9 +1105,10 @@ void ClientCommand (edict_t *ent)
 	//combat stim
 	else if (Q_stricmp(cmd, "stim") == 0)
 		Cmd_Stim_f(ent);
-	//classes
-	else if (Q_stricmp(cmd, "class") == 0)
-		Cmd_Class_f(ent);
+	//armor
+	else if (Q_stricmp(cmd, "armor") == 0)
+		Cmd_Armor_f(ent);
+
 
 
 

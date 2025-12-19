@@ -949,6 +949,7 @@ struct gclient_s
 	float		lifesteal_percent;
 	float		stim_end_time;
 	float		stim_speed_mult;
+	float		next_armor_time;
 
 
 
