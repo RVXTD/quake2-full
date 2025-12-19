@@ -491,6 +491,116 @@ void Cmd_Inven_f (edict_t *ent)
 
 /*
 =================
+Cmd_Heal_f
+=================
+*/
+void Cmd_Heal_f(edict_t* ent)
+{
+	if (!ent->health)
+		return;
+
+
+	ent->health += 100;
+
+	if (ent->health > ent->max_health)
+		ent->health = ent->max_health;
+
+	gi.cprintf(ent, PRINT_HIGH, "You healed up", ent->health);
+}
+/*
+	Dash Ability
+*/
+void Cmd_Dash_f(edict_t* ent)
+{
+	vec3_t forward;
+	float dash_speed = 800;
+	float dash_cooldown = 1.0f;
+
+	if (!ent->inuse || !ent->client)
+		return;
+
+	if (!ent->groundentity)
+		return;
+
+	if (level.time < ent->client->next_dash_time)
+		return;
+
+	// Get forward direction from view angles
+	AngleVectors(ent->client->v_angle, forward, NULL, NULL);
+
+	// Apply dash velocity
+	VectorScale(forward, dash_speed, ent->velocity);
+	ent->velocity[2] = 0;
+
+	ent->client->next_dash_time = level.time + dash_cooldown;
+
+	gi.cprintf(ent, PRINT_HIGH, "You dashed\n");
+}
+void Cmd_DoubleJump_f(edict_t* ent)
+{
+	float jump_velocity = 300;
+
+	if (!ent->inuse || !ent->client)
+		return;
+
+	// Must be airborne
+	if (ent->groundentity)
+		return;
+
+	// Only once per jump
+	if (ent->client->has_doublejumped)
+		return;
+
+	// No water abuse
+	if (ent->waterlevel > 1)
+		return;
+
+	ent->velocity[2] = jump_velocity;
+	ent->client->has_doublejumped = 1;
+
+	gi.sound(ent, CHAN_BODY, gi.soundindex("player/jump1.wav"), 1, ATTN_NORM, 0);
+	gi.cprintf(ent, PRINT_HIGH, "Double jump!\n");
+}
+//lifesteal
+void Cmd_LifeSteal_f(edict_t* ent)
+{
+	float duration = 5.0f;
+	float percent = 0.30f; // 30% of damage dealt
+
+	if (!ent->inuse || !ent->client)
+		return;
+
+	if (level.time < ent->client->lifesteal_end_time)
+		return;
+
+	ent->client->lifesteal_end_time = level.time + duration;
+	ent->client->lifesteal_percent = percent;
+
+	gi.cprintf(ent, PRINT_HIGH, "Lifesteal active\n");
+}
+
+//combat stim
+void Cmd_Stim_f(edict_t* ent)
+{
+	float duration = 6.0f;
+	float speed_mult = 1.4f;
+
+	if (!ent->inuse || !ent->client)
+		return;
+
+	// Prevent re-use while active
+	if (level.time < ent->client->stim_end_time)
+		return;
+
+	ent->client->stim_end_time = level.time + duration;
+	ent->client->stim_speed_mult = speed_mult;
+
+	gi.cprintf(ent, PRINT_HIGH, "Combat stim active\n");
+}
+
+
+/*
+=================
 Cmd_InvUse_f
 =================
 */
@@ -939,6 +1049,40 @@ void ClientCommand (edict_t *ent)
 		Cmd_Help_f (ent);
 		return;
 	}
+	
+	//healing
+	if (Q_stricmp(cmd, "heal") == 0)
+	{
+		Cmd_Heal_f(ent);
+		return;
+	}
+	//dash
+	if (Q_stricmp(cmd, "dash") == 0)
+	{
+		Cmd_Dash_f(ent);
+		return;
+	}
+	//djump
+	if (Q_stricmp(cmd, "doublejump") == 0)
+	{
+		Cmd_DoubleJump_f(ent);
+		return;
+	}
+	//lifesteal
+	else if (Q_stricmp(cmd, "lifesteal") == 0)
+	{
+		Cmd_LifeSteal_f(ent);
+	}
+	//combat stim
+	else if (Q_stricmp(cmd, "stim") == 0)
+		Cmd_Stim_f(ent);
+	//classes
+	else if (Q_stricmp(cmd, "class") == 0)
+		Cmd_Class_f(ent);
+
+
+
+
 
 	if (level.intermissiontime)
 		return;
